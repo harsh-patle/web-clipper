@@ -1,0 +1,8 @@
+# NEVER commit these files
+.env
+users.json
+config.json
+*.pyc
+__pycache__/
+*.pem
+*.key
