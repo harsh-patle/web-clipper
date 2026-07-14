@@ -39,15 +39,17 @@ CORS(app,
     allow_headers=["Content-Type", "Authorization", "X-Session-Id"],
     supports_credentials=True)
 
+USERS_FILE           = os.path.join(os.path.dirname(os.path.abspath(__file__)), "users.json")
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 NOTION_CLIENT_ID     = os.getenv("NOTION_CLIENT_ID", "")
 NOTION_CLIENT_SECRET = os.getenv("NOTION_CLIENT_SECRET", "")
+REDIRECT_URI         = os.getenv("REDIRECT_URI", "")
 NOTION_VERSION       = "2022-06-28"
-USERS_FILE           = os.path.join(os.path.dirname(os.path.abspath(__file__)), "users.json")
-
-# ── Admin dashboard access key ─────────────────────────────────────────────
-# Change this (or set ADMIN_KEY in .env) before sharing the extension!
-ADMIN_KEY            = os.getenv("ADMIN_KEY", "admin123")
-
+ADMIN_KEY            = os.getenv("ADMIN_KEY", "TAPF@123")
 # ── Shared HTTP session ─────────────────────────────────────────────────────
 # Reuses TCP/TLS connections to api.notion.com instead of renegotiating a
 # new handshake on every single request. Speeds up clips that make many
